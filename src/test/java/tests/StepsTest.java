@@ -2,7 +2,11 @@ package tests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.withText;
@@ -17,6 +21,9 @@ public class StepsTest extends TestBase {
     private static final int issueNumber = 87;
 
     @Test
+    @DisplayName("Проверка кнопки Issue в репозитории")
+    @Owner("Kwlad1ck")
+    @Severity(SeverityLevel.BLOCKER)
     public void repositoryPageContainIssueButtonWithLamdaSteps() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
@@ -41,6 +48,9 @@ public class StepsTest extends TestBase {
     }
 
     @Test
+    @DisplayName("Проверка кнопки Issue в репозитории")
+    @Owner("Kwlad1ck")
+    @Severity(SeverityLevel.BLOCKER)
     public void repositoryPageContainIssueButtonWithAnnotatedSteps() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         WebSteps steps = new WebSteps();
