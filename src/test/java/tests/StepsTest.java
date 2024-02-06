@@ -17,7 +17,7 @@ public class StepsTest extends TestBase {
     private static final int issueNumber = 87;
 
     @Test
-    public void repositoryPageContainIssueButtonWithLambaSteps() {
+    public void repositoryPageContainIssueButtonWithLamdaSteps() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         step("Открывает главную страницу Github", () -> {
@@ -30,7 +30,7 @@ public class StepsTest extends TestBase {
             $("#query-builder-test").setValue(repository).submit();
         });
         step("Клик на репозиторий " + repository, () -> {
-            $(linkText("eroshenkoam/allure-example")).click();
+            $(linkText(repository)).click();
         });
         step("Нажатие на Issue", () -> {
             $("#issues-tab").click();
@@ -38,6 +38,18 @@ public class StepsTest extends TestBase {
         step("Проверка налачия Issue c #" + issueNumber, () -> {
             $(withText("#" + issueNumber)).should(Condition.exist);
         });
+    }
 
+    @Test
+    public void repositoryPageContainIssueButtonWithAnnotatedSteps() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+        WebSteps steps = new WebSteps();
+
+        steps.openPage();
+        steps.clickSearchInput();
+        steps.setValueRepository(repository);
+        steps.clickLinkRepository(repository);
+        steps.clickIssueTab();
+        steps.shouldSeeIssueNumber(issueNumber);
     }
 }
