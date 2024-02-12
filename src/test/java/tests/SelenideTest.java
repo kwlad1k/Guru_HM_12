@@ -12,7 +12,7 @@ import static org.openqa.selenium.By.linkText;
 public class SelenideTest extends TestBase {
 
     @Test
-    public void repositoryPageContainIssueButton() {
+    public void repoPageContainIssueBtnTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         open("https://github.com/");
         $(".header-search-button").click();

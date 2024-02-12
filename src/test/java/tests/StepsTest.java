@@ -24,7 +24,7 @@ public class StepsTest extends TestBase {
     @DisplayName("Проверка кнопки Issue в репозитории")
     @Owner("Kwlad1ck")
     @Severity(SeverityLevel.BLOCKER)
-    public void repositoryPageContainIssueButtonWithLamdaSteps() {
+    public void repoPageContainIssueBtnWithLamdaStepsTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         step("Открывает главную страницу Github", () -> {
@@ -51,7 +51,7 @@ public class StepsTest extends TestBase {
     @DisplayName("Проверка кнопки Issue в репозитории")
     @Owner("Kwlad1ck")
     @Severity(SeverityLevel.BLOCKER)
-    public void repositoryPageContainIssueButtonWithAnnotatedSteps() {
+    public void repoPageContainIssueBtnWithAtdStepsTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         WebSteps steps = new WebSteps();
 
@@ -60,6 +60,6 @@ public class StepsTest extends TestBase {
         steps.setValueRepository(repository);
         steps.clickLinkRepository(repository);
         steps.clickIssueTab();
-        steps.shouldSeeIssueNumber(issueNumber);
+        steps.issueNumberCheck(issueNumber);
     }
 }
